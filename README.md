@@ -3,16 +3,6 @@
 
 MySQL 資料庫（匯入 CSV） → Flask 後端 API → Nginx 前端頁面呈現
 
-🧰 技術棧
-🐳 Docker + Docker Compose
-
-🗄️ MySQL 8
-
-🐍 Python 3.12 + Flask + PyMySQL
-
-🌐 Nginx + HTML5 (可選用 Bootstrap 美化)
-
-📊 Titanic CSV 資料集（內含乘客基本資訊）
 
 📁 專案結構
 ```
