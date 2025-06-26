@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Titanic Passengers 資料集</title>
+
+  <!-- ❶ Google Font：Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --primary:#3f51b5;           /* 主色 */
+      --primary-light:#5c6bc0;
+      --bg:#f5f7fa;                /* 背景灰 */
+      --text:#333;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Roboto',sans-serif;
+      background:var(--bg);
+      padding:2rem;
+      color:var(--text);
+    }
+    h1{
+      text-align:center;
+      color:var(--primary);
+      margin-bottom:1.5rem;
+      font-weight:700;
+    }
+
+    /* ❷ 表格外框：捲軸 + 陰影 + 圓角 */
+    .table-wrap{
+      overflow-x:auto;
+      background:#fff;
+      border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:960px;             /* 讓欄寬不會被壓得太窄 */
+    }
+
+    thead th{
+      position:sticky; top:0;                /* 捲動時標題列固定 */
+      background:linear-gradient(90deg,var(--primary) 0%,var(--primary-light) 100%);
+      color:#fff;
+      padding:12px 10px;
+      font-weight:500;
+    }
+
+    tbody td{
+      padding:10px;
+      text-align:center;
+      border-bottom:1px solid #e0e0e0;
+    }
+
+    /* ❸ 斑馬紋 + Hover */
+    tbody tr:nth-child(even){background:#f0f2ff}
+    tbody tr:hover{background:#e8eaf6}
+
+    /* 小螢幕行內卷軸優化（隱藏原生 scrollbar） */
+    .table-wrap::-webkit-scrollbar{height:8px}
+    .table-wrap::-webkit-scrollbar-thumb{background:#c5c8ff;border-radius:4px}
+  </style>
+</head>
+<body>
+
+  <h1>Titanic Passengers 資料集</h1>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          {% for col in cols %}
+            <th>{{ col }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+          <tr>
+            {% for col in cols %}
+              <td>{{ row[col] }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

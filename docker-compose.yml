@@ -1,0 +1,35 @@
+services:
+  mysql:
+    image: mysql:8
+    command: --local-infile=1 --secure-file-priv=""
+    container_name: mysql_titanic
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpw
+      MYSQL_DATABASE: titanic_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/docker-entrypoint-initdb.d
+
+  flask:
+    build: ./flask_app
+    container_name: flask_titanic
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mysql
+    volumes:
+      - ./flask_app:/app
+
+  webserver:
+    build: ./webserver
+    container_name: webserver_titanic
+    restart: always
+    ports:
+      - "9999:80"
+    depends_on:
+      - flask
+    volumes:
+      - ./webserver:/usr/share/nginx/html
