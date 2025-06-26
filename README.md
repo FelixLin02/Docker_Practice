@@ -34,17 +34,24 @@ titanic_project/
 ```
 
 
-bash
+執行方式
 複製程式碼
+'''
 sudo docker compose up --build
-
+'''
 開啟瀏覽器輸入：
 
 🔸 資料表（table.html，由 Flask 渲染）
-👉 IP:5000/table
+'''
+IP:5000/table
+'''
 
 🔸 JSON API（純資料格式）
-👉 IP:5000/passengers
+'''
+IP:5000/passengers
+'''
 
 若要停止並刪除所有容器與資源：
+'''
 sudo docker compose down
+'''
