@@ -15,23 +15,24 @@ MySQL 資料庫（匯入 CSV） → Flask 後端 API → Nginx 前端頁面呈�
 📊 Titanic CSV 資料集（內含乘客基本資訊）
 
 📁 專案結構
-csharp
-複製程式碼
+```
 titanic_project/
-├── docker-compose.yml          # 主設定檔
-├── mysql/                      # 資料庫初始化 SQL + CSV
+├── docker-compose.yml        # 主設定檔
+├── mysql/                    # 資料庫初始化 SQL + CSV
 │   ├── init.sql
 │   └── titanic.csv
-├── flask_app/                  # 後端 API
+├── flask_app/                # 後端 API
 │   ├── Dockerfile
 │   ├── app.py
 │   ├── requirements.txt
 │   └── templates/
-│       └── table.html          # 用於渲染乘客表格頁面
-├── webserver/                  # 靜態前端（Nginx）
+│       └── table.html        # 用於渲染乘客表格頁面
+├── webserver/                # 靜態前端（Nginx）
 │   ├── Dockerfile
-│   └── index.html              # 首頁，連結到 API
-└── README.md                   # 本說明文件
+│   └── index.html            # 首頁，連結到 API
+└── README.md                 # 本說明文件
+```
+
 
 bash
 複製程式碼
